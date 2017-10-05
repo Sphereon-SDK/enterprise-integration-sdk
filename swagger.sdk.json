@@ -1,0 +1,254 @@
+{
+  "basePath": "/",
+  "paths": {
+    "/integration/0.1/ingestion/": {"post": {
+      "summary": "Upload a file",
+      "produces": ["application/json;charset=UTF-8"],
+      "description": "Upload an input image. Classification will not be started yet.",
+      "operationId": "uploadInputFile",
+      "responses": {
+        "200": {
+          "schema": {"$ref": "#/definitions/DocumentPayload"},
+          "description": "file uploaded. A document payload response will be returned in the body."
+        },
+        "400": {
+          "schema": {"$ref": "#/definitions/ErrorResponse"},
+          "description": "The document could not be stored/processed"
+        }
+      },
+      "parameters": [{
+        "in": "formData",
+        "name": "stream",
+        "description": "The document data to be ingested",
+        "type": "file",
+        "required": true
+      }],
+      "tags": [
+        "All",
+        "Ingestion"
+      ],
+      "consumes": ["multipart/form-data"]
+    }},
+    "/integration/0.1/ingestion/{documentId}": {"get": {
+      "summary": "Get the status of the given document id",
+      "produces": ["application/json;charset=UTF-8"],
+      "operationId": "getDocumentStatus",
+      "responses": {"200": {
+        "schema": {"$ref": "#/definitions/IngestionResponse"},
+        "description": "OK"
+      }},
+      "parameters": [{
+        "in": "path",
+        "name": "documentId",
+        "description": "documentId",
+        "type": "string",
+        "required": true
+      }],
+      "tags": [
+        "All",
+        "Ingestion"
+      ],
+      "consumes": ["application/json"]
+    }},
+    "/integration/0.1/ingestion/{channelName}": {"put": {
+      "summary": "Push document to the ingestion queue",
+      "produces": ["application/json;charset=UTF-8"],
+      "operationId": "receiveDocument",
+      "responses": {"200": {
+        "schema": {"$ref": "#/definitions/IngestionResponse"},
+        "description": "Document ingested"
+      }},
+      "parameters": [
+        {
+          "in": "path",
+          "name": "channelName",
+          "description": "channelName",
+          "type": "string",
+          "required": true
+        },
+        {
+          "in": "query",
+          "name": "documentType",
+          "description": "documentType",
+          "type": "string",
+          "required": false
+        },
+        {
+          "schema": {"$ref": "#/definitions/DocumentPayload"},
+          "in": "body",
+          "name": "documentPayload",
+          "description": "documentPayload",
+          "required": true
+        }
+      ],
+      "tags": [
+        "All",
+        "Ingestion"
+      ],
+      "consumes": ["application/json;charset=UTF-8"]
+    }}
+  },
+  "host": "gw.api.cloud.sphereon.com",
+  "schemes": ["https"],
+  "securityDefinitions": {"oauth2schema": {
+    "tokenUrl": "https://gw.api.cloud.sphereon.com/token",
+    "scopes": {"global": "accessEverything"},
+    "type": "oauth2",
+    "flow": "application"
+  }},
+  "definitions": {
+    "Error": {
+      "description": "An error",
+      "type": "object",
+      "required": [
+        "code",
+        "level",
+        "message"
+      ],
+      "properties": {
+        "code": {"type": "string"},
+        "level": {
+          "type": "string",
+          "enum": [
+            "INFO",
+            "WARNING",
+            "FATAL"
+          ]
+        },
+        "cause": {"$ref": "#/definitions/Error"},
+        "message": {"type": "string"}
+      }
+    },
+    "IngestionResponse": {
+      "description": "The response from the ingestion controller.",
+      "type": "object",
+      "required": ["deliveryStatus"],
+      "properties": {
+        "requestTime": {
+          "format": "date-time",
+          "description": "The request date/time for this document in ISO 8601 format",
+          "readOnly": true,
+          "type": "string"
+        },
+        "deliveryTime": {
+          "format": "date-time",
+          "description": "The delivery date/time of this job in ISO 8601 format",
+          "readOnly": true,
+          "type": "string"
+        },
+        "documentId": {"type": "string"},
+        "deliveryStatus": {
+          "description": "The deliveryStatus of the document",
+          "readOnly": true,
+          "type": "string",
+          "enum": [
+            "CREATED",
+            "QUEUED",
+            "ON_HOLD",
+            "PROCESSING",
+            "DELIVERED",
+            "ERROR"
+          ]
+        },
+        "statusMessage": {
+          "description": "A delivery status message, which can be informational, warning or error. A message here does not indicate an error per se",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "StreamLocation": {
+      "description": "Location record of data stream",
+      "type": "object",
+      "properties": {
+        "folderPath": {"type": "string"},
+        "originalFileName": {"type": "string"},
+        "fileName": {"type": "string"},
+        "id": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "containerId": {"type": "string"}
+      }
+    },
+    "DocumentDetails": {
+      "description": "A structure containing details about the document name, size, data or data location etc.",
+      "type": "object",
+      "required": ["streamLocation"],
+      "properties": {
+        "fileName": {
+          "description": "The original file name",
+          "type": "string"
+        },
+        "streamLocation": {
+          "description": "The storage location of the binary stream",
+          "$ref": "#/definitions/StreamLocation"
+        },
+        "fileSize": {
+          "format": "int64",
+          "description": "The file size / stream length",
+          "type": "integer"
+        },
+        "contentType": {
+          "description": "The content type of the document",
+          "type": "string"
+        }
+      }
+    },
+    "DocumentPayload": {
+      "description": "A document payload containing file info and meta data.",
+      "type": "object",
+      "properties": {
+        "documentDetails": {
+          "description": "A structure containing details about the document name, size, data or data location etc.",
+          "$ref": "#/definitions/DocumentDetails"
+        },
+        "metaDataPayloadType": {
+          "description": "The markup type of the meta data payload",
+          "type": "string",
+          "enum": [
+            "JSON",
+            "XML"
+          ]
+        },
+        "metaDataPayload": {
+          "description": "The meta data payload",
+          "type": "string"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "description": "The error response",
+      "type": "object",
+      "properties": {"errors": {
+        "type": "array",
+        "items": {"$ref": "#/definitions/Error"}
+      }}
+    }
+  },
+  "swagger": "2.0",
+  "info": {
+    "license": {
+      "name": "Apache License Version 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "contact": {
+      "name": "Sphereon DevOps Team",
+      "url": "https://sphereon.com",
+      "email": "dev@sphereon.com"
+    },
+    "termsOfService": "https://sphereon.com",
+    "title": "Enterprise Integration API",
+    "version": "0.1"
+  },
+  "tags": [
+    {
+      "name": "All",
+      "description": "All API's"
+    },
+    {
+      "name": "Ingestion",
+      "description": "Ingestion API"
+    }
+  ]
+}

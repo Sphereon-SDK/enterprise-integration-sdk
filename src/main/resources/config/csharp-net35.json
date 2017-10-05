@@ -1,0 +1,35 @@
+{
+  "lang": "csharp",
+  "packageTitle": "EIP SDK C# .net35",
+  "inputSpec": "swagger.json",
+  "outputDir": "csharp-net35",
+  "verbose": true,
+  "skipOverwrite": false,
+  "templateDir": "src/main/resources",
+  "auth": "hello:world",
+  "apiPackage": "Sphereon.SDK.EIP.Api",
+  "modelPackage": "Sphereon.SDK.EIP.Model",
+  "invokerPackage": "Sphereon.SDK.EIP.Invoker",
+  "groupId": "com.sphereon.sdk",
+  "artifactId": "eip-sdk-csharp-net43",
+  "artifactVersion": "0.0.1-SNAPSHOT",
+  "systemProperties": {
+    "systemProp1": "value1"
+  },
+  "instantiationTypes": {
+    "hello": "world"
+  },
+  "typeMappings": {
+    "foo": "bar"
+  },
+  "additionalProperties": {
+    "addtProp1": "value2"
+  },
+  "importMappings": {
+    "type1": "import1"
+  },
+  "languageSpecificPrimitives": [
+    "rolex"
+  ],
+  "localVariablePrefix": "_"
+}
