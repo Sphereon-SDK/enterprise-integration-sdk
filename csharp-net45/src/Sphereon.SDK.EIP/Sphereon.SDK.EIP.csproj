@@ -12,7 +12,7 @@ Contact: dev@sphereon.com
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F079EC58-59D8-4F48-AD2B-F77EB93237B5}</ProjectGuid>
+    <ProjectGuid>{46DC03A8-E60E-4796-B706-07B9D2FADF1F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sphereon.SDK.EIP</RootNamespace>

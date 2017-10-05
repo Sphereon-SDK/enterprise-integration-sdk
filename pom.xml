@@ -41,7 +41,7 @@
                                     <verbose>${swagger-coden-verbose}</verbose>
                                     <output>${project.basedir}/html-docs</output>
                                     <groupId>com.sphereon.sdk</groupId>
-                                    <artifactId>eip-sdk-html-docs</artifactId>
+                                    <artifactId>enterprise-integration-sdk-html-docs</artifactId>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
                                     <apiPackage>api</apiPackage>
@@ -78,7 +78,7 @@
                                     <verbose>${swagger-coden-verbose}</verbose>
                                     <output>${project.basedir}/java8-okhttp-gson</output>
                                     <groupId>com.sphereon.sdk</groupId>
-                                    <artifactId>eip-sdk-java8</artifactId>
+                                    <artifactId>enterprise-integration-sdk-java8</artifactId>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
                                     <apiPackage>${sdk-package}.api</apiPackage>
@@ -115,7 +115,7 @@
                                     <verbose>${swagger-coden-verbose}</verbose>
                                     <output>${project.basedir}/java8-jersey2</output>
                                     <groupId>com.sphereon.sdk</groupId>
-                                    <artifactId>eip-sdk-java8-jersey2</artifactId>
+                                    <artifactId>enterprise-integration-sdk-java8-jersey2</artifactId>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
                                     <apiPackage>${sdk-package}.api</apiPackage>
@@ -153,7 +153,7 @@
                                     <verbose>${swagger-coden-verbose}</verbose>
                                     <output>${project.basedir}/java8-retrofit2</output>
                                     <groupId>com.sphereon.sdk</groupId>
-                                    <artifactId>eip-sdk-java8-retrofit2</artifactId>
+                                    <artifactId>enterprise-integration-sdk-java8-retrofit2</artifactId>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
                                     <apiPackage>${sdk-package}.api</apiPackage>
@@ -189,7 +189,7 @@
                                     <verbose>${swagger-coden-verbose}</verbose>
                                     <output>${project.basedir}/javascript</output>
                                     <groupId>com.sphereon.sdk</groupId>
-                                    <artifactId>eip-sdk-javascript</artifactId>
+                                    <artifactId>enterprise-integration-sdk-javascript</artifactId>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
                                     <apiPackage>api</apiPackage>
@@ -232,7 +232,7 @@
                                     <verbose>${swagger-coden-verbose}</verbose>
                                     <output>${project.basedir}/csharp-net45</output>
                                     <groupId>com.sphereon.sdk</groupId>
-                                    <artifactId>eip-sdk-csharp-net45</artifactId>
+                                    <artifactId>enterprise-integration-sdk-csharp-net45</artifactId>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
                                     <apiPackage>Api</apiPackage>
@@ -274,7 +274,7 @@
                                     <verbose>${swagger-coden-verbose}</verbose>
                                     <output>${project.basedir}/csharp-net35</output>
                                     <groupId>com.sphereon.sdk</groupId>
-                                    <artifactId>eip-sdk-csharp-net35</artifactId>
+                                    <artifactId>enterprise-integration-sdk-csharp-net35</artifactId>
                                     <artifactVersion>${project.version}</artifactVersion>
                                     <addCompileSourceRoot>true</addCompileSourceRoot>
                                     <apiPackage>Api</apiPackage>

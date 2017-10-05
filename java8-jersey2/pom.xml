@@ -2,9 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.sphereon.sdk</groupId>
-  <artifactId>eip-sdk-java8-jersey2</artifactId>
+  <artifactId>enterprise-integration-sdk-java8-jersey2</artifactId>
   <packaging>jar</packaging>
-  <name>eip-sdk-java8-jersey2</name>
+  <name>enterprise-integration-sdk-java8-jersey2</name>
   <version>0.1.0</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>

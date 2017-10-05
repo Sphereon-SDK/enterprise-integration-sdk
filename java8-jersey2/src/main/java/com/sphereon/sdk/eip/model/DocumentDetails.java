@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * A structure containing details about the document name, size, data or data location etc.
  */
 @ApiModel(description = "A structure containing details about the document name, size, data or data location etc.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:35:42.383+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:38:35.662+02:00")
 public class DocumentDetails {
   @JsonProperty("fileName")
   private String fileName = null;

@@ -1,4 +1,4 @@
-# eip-sdk-java8-retrofit2
+# enterprise-integration-sdk-java8-retrofit2
 
 ## Requirements
 
@@ -25,7 +25,7 @@ After the client library is installed/deployed, you can use it in your Maven pro
 ```xml
 <dependency>
     <groupId>com.sphereon.sdk</groupId>
-    <artifactId>eip-sdk-java8-retrofit2</artifactId>
+    <artifactId>enterprise-integration-sdk-java8-retrofit2</artifactId>
     <version>0.1.0</version>
     <scope>compile</scope>
 </dependency>

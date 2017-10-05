@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * The response from the ingestion controller.
  */
 @ApiModel(description = "The response from the ingestion controller.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:35:54.052+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:38:50.794+02:00")
 public class IngestionResponse {
   @SerializedName("requestTime")
   private OffsetDateTime requestTime = null;

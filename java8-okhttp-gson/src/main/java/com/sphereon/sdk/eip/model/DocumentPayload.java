@@ -28,7 +28,7 @@ import java.io.IOException;
  * A document payload containing file info and meta data.
  */
 @ApiModel(description = "A document payload containing file info and meta data.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:35:54.052+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:38:50.794+02:00")
 public class DocumentPayload {
   @SerializedName("documentDetails")
   private DocumentDetails documentDetails = null;

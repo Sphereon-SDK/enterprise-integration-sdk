@@ -1,7 +1,7 @@
 lazy val root = (project in file(".")).
   settings(
     organization := "com.sphereon.sdk",
-    name := "eip-sdk-java8-retrofit2",
+    name := "enterprise-integration-sdk-java8-retrofit2",
     version := "0.1.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),

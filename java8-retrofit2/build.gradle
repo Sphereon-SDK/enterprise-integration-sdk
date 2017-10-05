@@ -83,7 +83,7 @@ if(hasProperty('target') && target == 'android') {
 
     install {
         repositories.mavenInstaller {
-            pom.artifactId = 'eip-sdk-java8-retrofit2'
+            pom.artifactId = 'enterprise-integration-sdk-java8-retrofit2'
         }
     }
 

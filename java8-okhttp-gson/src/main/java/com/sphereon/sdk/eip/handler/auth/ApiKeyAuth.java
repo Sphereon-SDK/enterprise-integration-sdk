@@ -18,7 +18,7 @@ import com.sphereon.sdk.eip.handler.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:35:54.052+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:38:50.794+02:00")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

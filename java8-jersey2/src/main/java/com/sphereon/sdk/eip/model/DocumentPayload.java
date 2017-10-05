@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * A document payload containing file info and meta data.
  */
 @ApiModel(description = "A document payload containing file info and meta data.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:35:42.383+02:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-05T11:38:35.662+02:00")
 public class DocumentPayload {
   @JsonProperty("documentDetails")
   private DocumentDetails documentDetails = null;
