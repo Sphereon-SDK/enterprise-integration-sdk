@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.sphereon.sdk</groupId>
     <artifactId>enterprise-integration-sdk-java8-jersey2</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sphereon.sdk:enterprise-integration-sdk-java8-jersey2:0.1.0"
+compile "com.sphereon.sdk:enterprise-integration-sdk-java8-jersey2:1.0.0"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/enterprise-integration-sdk-java8-jersey2-0.1.0.jar
+* target/enterprise-integration-sdk-java8-jersey2-1.0.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -69,7 +69,12 @@ import java.util.*;
 public class AllApiExample {
 
     public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
+        // Configure OAuth2 access token for authorization: oauth2schema
+        OAuth oauth2schema = (OAuth) defaultClient.getAuthentication("oauth2schema");
+        oauth2schema.setAccessToken("YOUR ACCESS TOKEN");
+
         AllApi apiInstance = new AllApi();
         String documentId = "documentId_example"; // String | documentId
         try {
@@ -86,16 +91,18 @@ public class AllApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://gw.api.cloud.sphereon.com*
+All URIs are relative to *https://gw.api.cloud.sphereon.com/enterprise-integration/0.1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AllApi* | [**getDocumentStatus**](docs/AllApi.md#getDocumentStatus) | **GET** /integration/0.1/ingestion/{documentId} | Get the status of the given document id
-*AllApi* | [**receiveDocument**](docs/AllApi.md#receiveDocument) | **PUT** /integration/0.1/ingestion/{channelName} | Push document to the ingestion queue
-*AllApi* | [**uploadInputFile**](docs/AllApi.md#uploadInputFile) | **POST** /integration/0.1/ingestion/ | Upload a file
-*IngestionApi* | [**getDocumentStatus**](docs/IngestionApi.md#getDocumentStatus) | **GET** /integration/0.1/ingestion/{documentId} | Get the status of the given document id
-*IngestionApi* | [**receiveDocument**](docs/IngestionApi.md#receiveDocument) | **PUT** /integration/0.1/ingestion/{channelName} | Push document to the ingestion queue
-*IngestionApi* | [**uploadInputFile**](docs/IngestionApi.md#uploadInputFile) | **POST** /integration/0.1/ingestion/ | Upload a file
+*AllApi* | [**getDocumentStatus**](docs/AllApi.md#getDocumentStatus) | **GET** /ingestion/documents/{documentId}/status | Get the status of the given document id
+*AllApi* | [**receiveDocument**](docs/AllApi.md#receiveDocument) | **PUT** /ingestion/channels/{channelName} | Push document to the ingestion queue
+*AllApi* | [**resendDocument**](docs/AllApi.md#resendDocument) | **PUT** /ingestion/documents/{documentId}/resend | Resend document with the given document id
+*AllApi* | [**uploadInputFile**](docs/AllApi.md#uploadInputFile) | **POST** /ingestion/streams | Upload a file
+*IngestionApi* | [**getDocumentStatus**](docs/IngestionApi.md#getDocumentStatus) | **GET** /ingestion/documents/{documentId}/status | Get the status of the given document id
+*IngestionApi* | [**receiveDocument**](docs/IngestionApi.md#receiveDocument) | **PUT** /ingestion/channels/{channelName} | Push document to the ingestion queue
+*IngestionApi* | [**resendDocument**](docs/IngestionApi.md#resendDocument) | **PUT** /ingestion/documents/{documentId}/resend | Resend document with the given document id
+*IngestionApi* | [**uploadInputFile**](docs/IngestionApi.md#uploadInputFile) | **POST** /ingestion/streams | Upload a file
 
 
 ## Documentation for Models

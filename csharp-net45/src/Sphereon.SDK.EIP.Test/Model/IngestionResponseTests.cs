@@ -89,6 +89,14 @@ namespace Sphereon.SDK.EIP.Test
             // TODO unit test for the property 'DocumentId'
         }
         /// <summary>
+        /// Test the property 'Version'
+        /// </summary>
+        [Test]
+        public void VersionTest()
+        {
+            // TODO unit test for the property 'Version'
+        }
+        /// <summary>
         /// Test the property 'DeliveryStatus'
         /// </summary>
         [Test]

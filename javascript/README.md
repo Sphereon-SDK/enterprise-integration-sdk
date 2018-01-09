@@ -96,6 +96,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var EnterpriseIntegrationApi = require('enterprise_integration_api');
 
+var defaultClient = EnterpriseIntegrationApi.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: oauth2schema
+var oauth2schema = defaultClient.authentications['oauth2schema'];
+oauth2schema.accessToken = "YOUR ACCESS TOKEN"
+
 var api = new EnterpriseIntegrationApi.AllApi()
 
 var documentId = "documentId_example"; // {String} documentId
@@ -114,16 +120,18 @@ api.getDocumentStatus(documentId, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://gw.api.cloud.sphereon.com*
+All URIs are relative to *https://gw.api.cloud.sphereon.com/enterprise-integration/0.1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*EnterpriseIntegrationApi.AllApi* | [**getDocumentStatus**](docs/AllApi.md#getDocumentStatus) | **GET** /integration/0.1/ingestion/{documentId} | Get the status of the given document id
-*EnterpriseIntegrationApi.AllApi* | [**receiveDocument**](docs/AllApi.md#receiveDocument) | **PUT** /integration/0.1/ingestion/{channelName} | Push document to the ingestion queue
-*EnterpriseIntegrationApi.AllApi* | [**uploadInputFile**](docs/AllApi.md#uploadInputFile) | **POST** /integration/0.1/ingestion/ | Upload a file
-*EnterpriseIntegrationApi.IngestionApi* | [**getDocumentStatus**](docs/IngestionApi.md#getDocumentStatus) | **GET** /integration/0.1/ingestion/{documentId} | Get the status of the given document id
-*EnterpriseIntegrationApi.IngestionApi* | [**receiveDocument**](docs/IngestionApi.md#receiveDocument) | **PUT** /integration/0.1/ingestion/{channelName} | Push document to the ingestion queue
-*EnterpriseIntegrationApi.IngestionApi* | [**uploadInputFile**](docs/IngestionApi.md#uploadInputFile) | **POST** /integration/0.1/ingestion/ | Upload a file
+*EnterpriseIntegrationApi.AllApi* | [**getDocumentStatus**](docs/AllApi.md#getDocumentStatus) | **GET** /ingestion/documents/{documentId}/status | Get the status of the given document id
+*EnterpriseIntegrationApi.AllApi* | [**receiveDocument**](docs/AllApi.md#receiveDocument) | **PUT** /ingestion/channels/{channelName} | Push document to the ingestion queue
+*EnterpriseIntegrationApi.AllApi* | [**resendDocument**](docs/AllApi.md#resendDocument) | **PUT** /ingestion/documents/{documentId}/resend | Resend document with the given document id
+*EnterpriseIntegrationApi.AllApi* | [**uploadInputFile**](docs/AllApi.md#uploadInputFile) | **POST** /ingestion/streams | Upload a file
+*EnterpriseIntegrationApi.IngestionApi* | [**getDocumentStatus**](docs/IngestionApi.md#getDocumentStatus) | **GET** /ingestion/documents/{documentId}/status | Get the status of the given document id
+*EnterpriseIntegrationApi.IngestionApi* | [**receiveDocument**](docs/IngestionApi.md#receiveDocument) | **PUT** /ingestion/channels/{channelName} | Push document to the ingestion queue
+*EnterpriseIntegrationApi.IngestionApi* | [**resendDocument**](docs/IngestionApi.md#resendDocument) | **PUT** /ingestion/documents/{documentId}/resend | Resend document with the given document id
+*EnterpriseIntegrationApi.IngestionApi* | [**uploadInputFile**](docs/IngestionApi.md#uploadInputFile) | **POST** /ingestion/streams | Upload a file
 
 
 ## Documentation for Models

@@ -73,20 +73,12 @@ namespace Sphereon.SDK.EIP.Test
             // TODO unit test for the property 'FolderPath'
         }
         /// <summary>
-        /// Test the property 'OriginalFileName'
+        /// Test the property 'Filename'
         /// </summary>
         [Test]
-        public void OriginalFileNameTest()
+        public void FilenameTest()
         {
-            // TODO unit test for the property 'OriginalFileName'
-        }
-        /// <summary>
-        /// Test the property 'FileName'
-        /// </summary>
-        [Test]
-        public void FileNameTest()
-        {
-            // TODO unit test for the property 'FileName'
+            // TODO unit test for the property 'Filename'
         }
         /// <summary>
         /// Test the property 'Id'
@@ -103,6 +95,14 @@ namespace Sphereon.SDK.EIP.Test
         public void ContainerIdTest()
         {
             // TODO unit test for the property 'ContainerId'
+        }
+        /// <summary>
+        /// Test the property 'OriginalFilename'
+        /// </summary>
+        [Test]
+        public void OriginalFilenameTest()
+        {
+            // TODO unit test for the property 'OriginalFilename'
         }
 
     }

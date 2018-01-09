@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **requestTime** | **Date** | The request date/time for this document in ISO 8601 format | [optional] 
 **deliveryTime** | **Date** | The delivery date/time of this job in ISO 8601 format | [optional] 
 **documentId** | **String** |  | [optional] 
+**version** | **Number** |  | [optional] 
 **deliveryStatus** | **String** | The deliveryStatus of the document | 
 **statusMessage** | **String** | A delivery status message, which can be informational, warning or error. A message here does not indicate an error per se | [optional] 
 

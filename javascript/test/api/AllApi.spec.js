@@ -71,6 +71,16 @@
         done();
       });
     });
+    describe('resendDocument', function() {
+      it('should call resendDocument successfully', function(done) {
+        //uncomment below and update the code to test resendDocument
+        //instance.resendDocument(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('uploadInputFile', function() {
       it('should call uploadInputFile successfully', function(done) {
         //uncomment below and update the code to test uploadInputFile

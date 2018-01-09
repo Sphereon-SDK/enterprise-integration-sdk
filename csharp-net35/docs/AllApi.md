@@ -1,12 +1,13 @@
 # Sphereon.SDK.EIP.Api.AllApi
 
-All URIs are relative to *https://gw.api.cloud.sphereon.com*
+All URIs are relative to *https://gw.api.cloud.sphereon.com/enterprise-integration/0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDocumentStatus**](AllApi.md#getdocumentstatus) | **GET** /integration/0.1/ingestion/{documentId} | Get the status of the given document id
-[**ReceiveDocument**](AllApi.md#receivedocument) | **PUT** /integration/0.1/ingestion/{channelName} | Push document to the ingestion queue
-[**UploadInputFile**](AllApi.md#uploadinputfile) | **POST** /integration/0.1/ingestion/ | Upload a file
+[**GetDocumentStatus**](AllApi.md#getdocumentstatus) | **GET** /ingestion/documents/{documentId}/status | Get the status of the given document id
+[**ReceiveDocument**](AllApi.md#receivedocument) | **PUT** /ingestion/channels/{channelName} | Push document to the ingestion queue
+[**ResendDocument**](AllApi.md#resenddocument) | **PUT** /ingestion/documents/{documentId}/resend | Resend document with the given document id
+[**UploadInputFile**](AllApi.md#uploadinputfile) | **POST** /ingestion/streams | Upload a file
 
 
 <a name="getdocumentstatus"></a>
@@ -29,6 +30,9 @@ namespace Example
     {
         public void main()
         {
+            // Configure OAuth2 access token for authorization: oauth2schema
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new AllApi();
             var documentId = documentId_example;  // string | documentId
 
@@ -59,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2schema](../README.md#oauth2schema)
 
 ### HTTP request headers
 
@@ -88,6 +92,9 @@ namespace Example
     {
         public void main()
         {
+            // Configure OAuth2 access token for authorization: oauth2schema
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new AllApi();
             var channelName = channelName_example;  // string | channelName
             var documentPayload = new DocumentPayload(); // DocumentPayload | documentPayload
@@ -122,11 +129,73 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2schema](../README.md#oauth2schema)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="resenddocument"></a>
+# **ResendDocument**
+> IngestionResponse ResendDocument (string documentId)
+
+Resend document with the given document id
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Sphereon.SDK.EIP.Api;
+using Sphereon.SDK.EIP.Client;
+using Sphereon.SDK.EIP.Model;
+
+namespace Example
+{
+    public class ResendDocumentExample
+    {
+        public void main()
+        {
+            // Configure OAuth2 access token for authorization: oauth2schema
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AllApi();
+            var documentId = documentId_example;  // string | documentId
+
+            try
+            {
+                // Resend document with the given document id
+                IngestionResponse result = apiInstance.ResendDocument(documentId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AllApi.ResendDocument: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **documentId** | **string**| documentId | 
+
+### Return type
+
+[**IngestionResponse**](IngestionResponse.md)
+
+### Authorization
+
+[oauth2schema](../README.md#oauth2schema)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -153,6 +222,9 @@ namespace Example
     {
         public void main()
         {
+            // Configure OAuth2 access token for authorization: oauth2schema
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new AllApi();
             var stream = new System.IO.Stream(); // System.IO.Stream | The document data to be ingested
 
@@ -183,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2schema](../README.md#oauth2schema)
 
 ### HTTP request headers
 

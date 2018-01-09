@@ -63,14 +63,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property originalFileName (base name: "originalFileName")', function() {
-      // uncomment below and update the code to test the property originalFileName
-      //var instane = new EnterpriseIntegrationApi.StreamLocation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fileName (base name: "fileName")', function() {
-      // uncomment below and update the code to test the property fileName
+    it('should have the property filename (base name: "filename")', function() {
+      // uncomment below and update the code to test the property filename
       //var instane = new EnterpriseIntegrationApi.StreamLocation();
       //expect(instance).to.be();
     });
@@ -83,6 +77,12 @@
 
     it('should have the property containerId (base name: "containerId")', function() {
       // uncomment below and update the code to test the property containerId
+      //var instane = new EnterpriseIntegrationApi.StreamLocation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property originalFilename (base name: "originalFilename")', function() {
+      // uncomment below and update the code to test the property originalFilename
       //var instane = new EnterpriseIntegrationApi.StreamLocation();
       //expect(instance).to.be();
     });

@@ -70,6 +70,22 @@ public class AllApiTest {
     }
     
     /**
+     * Resend document with the given document id
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void resendDocumentTest() throws ApiException {
+        String documentId = null;
+        IngestionResponse response = api.resendDocument(documentId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Upload a file
      *
      * Upload an input image. Classification will not be started yet.

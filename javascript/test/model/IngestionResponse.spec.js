@@ -75,6 +75,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property version (base name: "version")', function() {
+      // uncomment below and update the code to test the property version
+      //var instane = new EnterpriseIntegrationApi.IngestionResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property deliveryStatus (base name: "deliveryStatus")', function() {
       // uncomment below and update the code to test the property deliveryStatus
       //var instane = new EnterpriseIntegrationApi.IngestionResponse();

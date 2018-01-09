@@ -55,6 +55,19 @@ public class IngestionApiTest {
     }
     
     /**
+     * Resend document with the given document id
+     *
+     * 
+     */
+    @Test
+    public void resendDocumentTest() {
+        String documentId = null;
+        // IngestionResponse response = api.resendDocument(documentId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Upload a file
      *
      * Upload an input image. Classification will not be started yet.

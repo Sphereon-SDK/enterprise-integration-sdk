@@ -75,7 +75,7 @@ Contact: dev@sphereon.com
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\Sphereon.SDK.EIP\Sphereon.SDK.EIP.csproj">
-          <Project>{2C771F7E-89C3-4939-A8E0-50C0CF6C0502}</Project>
+          <Project>{BFC39937-1334-49DE-AA95-6B7753EC3BD0}</Project>
           <Name>Sphereon.SDK.EIP</Name>
       </ProjectReference>
   </ItemGroup>

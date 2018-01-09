@@ -1,57 +1,9 @@
 {
-  "basePath": "/",
+  "basePath": "/enterprise-integration/0.1",
   "paths": {
-    "/integration/0.1/ingestion/": {"post": {
-      "summary": "Upload a file",
-      "produces": ["application/json;charset=UTF-8"],
-      "description": "Upload an input image. Classification will not be started yet.",
-      "operationId": "uploadInputFile",
-      "responses": {
-        "200": {
-          "schema": {"$ref": "#/definitions/DocumentPayload"},
-          "description": "file uploaded. A document payload response will be returned in the body."
-        },
-        "400": {
-          "schema": {"$ref": "#/definitions/ErrorResponse"},
-          "description": "The document could not be stored/processed"
-        }
-      },
-      "parameters": [{
-        "in": "formData",
-        "name": "stream",
-        "description": "The document data to be ingested",
-        "type": "file",
-        "required": true
-      }],
-      "tags": [
-        "All",
-        "Ingestion"
-      ],
-      "consumes": ["multipart/form-data"]
-    }},
-    "/integration/0.1/ingestion/{documentId}": {"get": {
-      "summary": "Get the status of the given document id",
-      "produces": ["application/json;charset=UTF-8"],
-      "operationId": "getDocumentStatus",
-      "responses": {"200": {
-        "schema": {"$ref": "#/definitions/IngestionResponse"},
-        "description": "OK"
-      }},
-      "parameters": [{
-        "in": "path",
-        "name": "documentId",
-        "description": "documentId",
-        "type": "string",
-        "required": true
-      }],
-      "tags": [
-        "All",
-        "Ingestion"
-      ],
-      "consumes": ["application/json"]
-    }},
-    "/integration/0.1/ingestion/{channelName}": {"put": {
+    "/ingestion/channels/{channelName}": {"put": {
       "summary": "Push document to the ingestion queue",
+      "security": [{"oauth2schema": ["global"]}],
       "produces": ["application/json;charset=UTF-8"],
       "operationId": "receiveDocument",
       "responses": {"200": {
@@ -86,6 +38,79 @@
         "Ingestion"
       ],
       "consumes": ["application/json;charset=UTF-8"]
+    }},
+    "/ingestion/documents/{documentId}/status": {"get": {
+      "summary": "Get the status of the given document id",
+      "security": [{"oauth2schema": ["global"]}],
+      "produces": ["application/json;charset=UTF-8"],
+      "operationId": "getDocumentStatus",
+      "responses": {"200": {
+        "schema": {"$ref": "#/definitions/IngestionResponse"},
+        "description": "OK"
+      }},
+      "parameters": [{
+        "in": "path",
+        "name": "documentId",
+        "description": "documentId",
+        "type": "string",
+        "required": true
+      }],
+      "tags": [
+        "All",
+        "Ingestion"
+      ],
+      "consumes": ["application/json"]
+    }},
+    "/ingestion/streams": {"post": {
+      "summary": "Upload a file",
+      "security": [{"oauth2schema": ["global"]}],
+      "produces": ["application/json;charset=UTF-8"],
+      "description": "Upload an input image. Classification will not be started yet.",
+      "operationId": "uploadInputFile",
+      "responses": {
+        "200": {
+          "schema": {"$ref": "#/definitions/DocumentPayload"},
+          "description": "file uploaded. A document payload response will be returned in the body."
+        },
+        "400": {
+          "schema": {"$ref": "#/definitions/ErrorResponse"},
+          "description": "The document could not be stored/processed"
+        }
+      },
+      "parameters": [{
+        "in": "formData",
+        "name": "stream",
+        "description": "The document data to be ingested",
+        "type": "file",
+        "required": true
+      }],
+      "tags": [
+        "All",
+        "Ingestion"
+      ],
+      "consumes": ["multipart/form-data"]
+    }},
+    "/ingestion/documents/{documentId}/resend": {"put": {
+      "summary": "Resend document with the given document id",
+      "security": [{"oauth2schema": ["global"]}],
+      "produces": ["application/json;charset=UTF-8"],
+      "operationId": "resendDocument",
+      "responses": {"200": {
+        "schema": {"$ref": "#/definitions/IngestionResponse"},
+        "description": "OK"
+      }},
+      "parameters": [{
+        "in": "path",
+        "name": "documentId",
+        "description": "documentId",
+        "type": "string",
+        "required": true
+      }],
+      "tags": [
+        "All",
+        "Ingestion"
+      ],
+      "consumes": ["application/json"]
     }}
   },
   "host": "gw.api.cloud.sphereon.com",
@@ -137,6 +162,10 @@
           "type": "string"
         },
         "documentId": {"type": "string"},
+        "version": {
+          "format": "int64",
+          "type": "integer"
+        },
         "deliveryStatus": {
           "description": "The deliveryStatus of the document",
           "readOnly": true,
@@ -162,13 +191,13 @@
       "type": "object",
       "properties": {
         "folderPath": {"type": "string"},
-        "originalFileName": {"type": "string"},
-        "fileName": {"type": "string"},
+        "filename": {"type": "string"},
         "id": {
           "readOnly": true,
           "type": "string"
         },
-        "containerId": {"type": "string"}
+        "containerId": {"type": "string"},
+        "originalFilename": {"type": "string"}
       }
     },
     "DocumentDetails": {
@@ -244,11 +273,19 @@
   "tags": [
     {
       "name": "All",
+      "description": "API for payload ingestion by the Enterprise Integration micro service"
+    },
+    {
+      "name": "All API's",
       "description": "All API's"
     },
     {
+      "name": "Ingestion API",
+      "description": "Ingestion related API's"
+    },
+    {
       "name": "Ingestion",
-      "description": "Ingestion API"
+      "description": "API for payload ingestion by the Enterprise Integration micro service"
     }
   ]
 }

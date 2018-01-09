@@ -91,6 +91,18 @@ namespace Sphereon.SDK.EIP.Test
         }
         
         /// <summary>
+        /// Test ResendDocument
+        /// </summary>
+        [Test]
+        public void ResendDocumentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string documentId = null;
+            //var response = instance.ResendDocument(documentId);
+            //Assert.IsInstanceOf<IngestionResponse> (response, "response is IngestionResponse");
+        }
+        
+        /// <summary>
         /// Test UploadInputFile
         /// </summary>
         [Test]
